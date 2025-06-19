@@ -1,0 +1,45 @@
+{
+  "name": "@prsantos/airnow-mcp-server",
+  "description": "The Unofficial AirNow MCP Server",
+  "version": "1.0.2",
+  "license": "ISC",
+  "author": "Peter Santos",
+  "keywords": [
+    "mcp",
+    "prompt"
+  ],
+  "type": "module",
+  "bin": {
+    "stereotype-this-mcp-server": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc && shx chmod +x dist/*.js",
+    "inspector": "npx @modelcontextprotocol/inspector dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "prepublishOnly": "npm run build",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.9.0",
+    "dotenv": "^16.5.0",
+    "winston": "^3.17.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "shx": "^0.4.0",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prsantos-com/airnow-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prsantos-com/airnow-mcp-server/issues"
+  },
+  "homepage": "https://github.com/prsantos-com/airnow-mcp-server#readme"
+}
