@@ -76,7 +76,7 @@ Add one of these configurations to your `claude_desktop_config.json`:
       "command": "npx",
       "args": [
         "-y",
-        "@prsantos-com/airnow-mcp-server"
+        "@prsantos/airnow-mcp-server"
       ],
       "env":{
         "AIRNOW_API_KEY": "<YOUR-AIRNOW-API-KEY>",
