@@ -1,7 +1,7 @@
 {
   "name": "@prsantos/airnow-mcp-server",
   "description": "The Unofficial AirNow MCP Server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "ISC",
   "author": "Peter Santos",
   "keywords": [
