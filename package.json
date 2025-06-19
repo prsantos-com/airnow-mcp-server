@@ -6,11 +6,11 @@
   "author": "Peter Santos",
   "keywords": [
     "mcp",
-    "prompt"
+    "tools"
   ],
   "type": "module",
   "bin": {
-    "stereotype-this-mcp-server": "dist/index.js"
+    "airnow-mcp-server": "dist/index.js"
   },
   "scripts": {
     "build": "tsc && shx chmod +x dist/*.js",
