@@ -1,11 +1,9 @@
 import { AIRNOW_API_HOSTNAME, AIRNOW_API_KEY } from "./config.js";
-import logger from "./logger.js";
 
 async function airnowGet(endpoint: string, queryParams: URLSearchParams): Promise<string | null> {
   queryParams.append('api_key', AIRNOW_API_KEY);
 
   try {
-    logger.debug(`Fetching: ${AIRNOW_API_HOSTNAME}${endpoint}?${queryParams}`);
     const response = await fetch(`${AIRNOW_API_HOSTNAME}${endpoint}?${queryParams}`);
     if (!response.ok) {
       const errorText = await response.text();
@@ -13,13 +11,12 @@ async function airnowGet(endpoint: string, queryParams: URLSearchParams): Promis
     }
     return response.text();
   } catch (error) {
-    logger.error(`Error fetching data from ${endpoint}: ${error instanceof Error ? error.stack : error}`);
+    console.error(`Error fetching data from ${endpoint}:`, error);
     return null;
   }
 }
 
 export async function fetchForecastByZipCode(params: Record<string, string>): Promise<string | null> {
-  logger.debug(`fetchForecastByZipCode called with params: ${JSON.stringify(params)}`);
   const endpoint = 'aq/forecast/zipcode/';
   const queryParams = new URLSearchParams();
   queryParams.append('zipCode', params.zipCode);
@@ -31,7 +28,6 @@ export async function fetchForecastByZipCode(params: Record<string, string>): Pr
 }
 
 export async function fetchForecastByLatLong(params: Record<string, string>): Promise<string | null> {
-  logger.debug(`fetchForecastByLatLong called with params: ${JSON.stringify(params)}`);
   const endpoint = 'aq/forecast/latlong/';
   const queryParams = new URLSearchParams();
   queryParams.append('latitude', params.latitude);
@@ -44,7 +40,6 @@ export async function fetchForecastByLatLong(params: Record<string, string>): Pr
 }
 
 export async function fetchCurrentObservationsByReportingAreaByZipCode(params: Record<string, string>): Promise<string | null> {
-  logger.debug(`fetchCurrentObservationsByReportingAreaByZipCode called with params: ${JSON.stringify(params)}`);
   const endpoint = 'aq/observation/zipcode/current/';
   const queryParams = new URLSearchParams();
   queryParams.append('zipCode', params.zipCode);
@@ -55,7 +50,6 @@ export async function fetchCurrentObservationsByReportingAreaByZipCode(params: R
 }
 
 export async function fetchCurrentObservationsByReportingAreaByLatLong(params: Record<string, string>): Promise<string | null> {
-  logger.debug(`fetchCurrentObservationsByReportingAreaByLatLong called with params: ${JSON.stringify(params)}`);
   const endpoint = 'aq/observation/latlong/current/';
   const queryParams = new URLSearchParams();
   queryParams.append('latitude', params.latitude);
@@ -67,7 +61,6 @@ export async function fetchCurrentObservationsByReportingAreaByLatLong(params: R
 }
 
 export async function fetchHistoricalObservationsByReportingAreaByZipCode(params: Record<string, string>): Promise<string | null> {
-  logger.debug(`fetchHistoricalObservationsByReportingAreaByZipCode called with params: ${JSON.stringify(params)}`);
   const endpoint = 'aq/observation/zipcode/historical/';
   const queryParams = new URLSearchParams();
   queryParams.append('zipCode', params.zipCode);
@@ -79,7 +72,6 @@ export async function fetchHistoricalObservationsByReportingAreaByZipCode(params
 }
 
 export async function fetchHistoricalObservationsByReportingAreaByLatLong(params: Record<string, string>): Promise<string | null> {
-  logger.debug(`fetchHistoricalObservationsByReportingAreaByLatLong called with params: ${JSON.stringify(params)}`);
   const endpoint = 'aq/observation/latlong/historical/';
   const queryParams = new URLSearchParams();
   queryParams.append('latitude', params.latitude);
@@ -92,7 +84,6 @@ export async function fetchHistoricalObservationsByReportingAreaByLatLong(params
 }
 
 export async function fetchObservationsByMonitoringSiteByGeographicBoundingBox(params: Record<string, string>): Promise<string | null> {
-  logger.debug(`fetchObservationsByMonitoringSiteByGeographicBoundingBox called with params: ${JSON.stringify(params)}`);
   const endpoint = 'aq/data/';
   const queryParams = new URLSearchParams();
   queryParams.append('bbox', params.bbox);
@@ -111,7 +102,6 @@ export async function fetchObservationsByMonitoringSiteByGeographicBoundingBox(p
 }
 
 export async function fetchContourMapsByGeographicBoundingBoxPM25(params: Record<string, string>): Promise<string | null> {
-  logger.debug(`fetchContourMapsByGeographicBoundingBoxPM25 called with params: ${JSON.stringify(params)}`);
   const endpoint = 'aq/kml/pm25/';
   const queryParams = new URLSearchParams();
   queryParams.append('date', params.date);
@@ -122,7 +112,6 @@ export async function fetchContourMapsByGeographicBoundingBoxPM25(params: Record
 }
 
 export async function fetchContourMapsByGeographicBoundingBoxOzone(params: Record<string, string>): Promise<string | null> {
-  logger.debug(`fetchContourMapsByGeographicBoundingBoxOzone called with params: ${JSON.stringify(params)}`);
   const endpoint = 'aq/kml/ozone/';
   const queryParams = new URLSearchParams();
   queryParams.append('date', params.date);
@@ -133,7 +122,6 @@ export async function fetchContourMapsByGeographicBoundingBoxOzone(params: Recor
 }
 
 export async function fetchContourMapsByBoundingBoxCombinedOzonePM25(params: Record<string, string>): Promise<string | null> {
-  logger.debug(`fetchContourMapsByBoundingBoxCombinedOzonePM25 called with params: ${JSON.stringify(params)}`);
   const endpoint = 'aq/kml/combined/';
   const queryParams = new URLSearchParams();
   queryParams.append('date', params.date);

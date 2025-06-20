@@ -29,7 +29,7 @@ The [AirNow API](https://docs.airnowapi.org/webservices) provides access to offi
 
 - **Health Recommendations:**  
   The API provides health recommendations and cautionary statements based on AQI levels.
- 
+
 For detailed information on endpoints, parameters, and response formats, log in with your AirNow API account and go to the [AirNow API Web Services Documentation](https://docs.airnowapi.org/webservices).
 
 ## Available Tools
@@ -79,8 +79,7 @@ Add one of these configurations to your `claude_desktop_config.json`:
         "@prsantos/airnow-mcp-server"
       ],
       "env":{
-        "AIRNOW_API_KEY": "<YOUR-AIRNOW-API-KEY>",
-        "LOG_LEVEL": "<ANY-LOG-LEVEL>" // Optional. Not setting will default to "info"
+        "AIRNOW_API_KEY": "<YOUR-AIRNOW-API-KEY>"
       }
     }
   }
@@ -105,8 +104,7 @@ Add one of these configurations to your `claude_desktop_config.json`:
         "prsantos/airnow-mcp-server"
       ],
       "env":{
-        "AIRNOW_API_KEY": "<YOUR-AIRNOW-API-KEY>",
-        "LOG_LEVEL": "<ANY-LOG-LEVEL>" // Optional. Not setting will default to "info"
+        "AIRNOW_API_KEY": "<YOUR-AIRNOW-API-KEY>"
       }
     }
   }
