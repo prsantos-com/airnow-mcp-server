@@ -79,12 +79,18 @@ Add one of these configurations to your `claude_desktop_config.json`:
         "@prsantos/airnow-mcp-server"
       ],
       "env":{
-        "AIRNOW_API_KEY": "<YOUR-AIRNOW-API-KEY>"
+        "AIRNOW_API_KEY": "<YOUR-AIRNOW-API-KEY>",
+        "APPDATA": "<Value of APPDATA>" // Windows example: "C:\\Users\\[username]\\AppData\\Roaming"
       }
     }
   }
 }
 ```
+
+Note:
+
+- For Windows, get the APPDATA value by opening the Command Prompt and running: `echo %APPDATA%`
+- For Mac, get the APPDATA value, by opening the Terminal running: `which npm`
 
 #### Docker
 
@@ -99,8 +105,6 @@ Add one of these configurations to your `claude_desktop_config.json`:
         "--rm",
         "-e",
         "AIRNOW_API_KEY",
-        "-e",
-        "LOG_LEVEL",
         "prsantos/airnow-mcp-server"
       ],
       "env":{
